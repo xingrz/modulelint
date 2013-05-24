@@ -1,28 +1,28 @@
 modulelint
 ==========
 
-Module Lint是一款检测模块各种素质的工具。面向Node模块开发人员。
+Module Lint 是一款检测模块各种素质的工具。面向 Node 模块开发人员。
 
 ## 初步思路
 
-- 检查模块的目录是否符合CommonJS包规范，每符合一样加10分
-  - [✓]lib
-  - [✓]doc
-  - [✓]test
-  - package.json
-- [✓]检查README文件的内容，去掉空格后1000字10分。上限30分
-- 检查License文件。具备License文件的项目加10分。检查文件名包含License与否。
-- 检查测试用例数量。每个case加2分
-- 检查测试覆盖率。覆盖率从50%开始，每覆盖5%加5分。高于95%加10分
-- 检查Coding Style, 每个文件不超过3个问题的，加2分。没有问题的加5分
-- [✓]模块名字少于10个字母的，加5分
-- API注释，每个完整的注释加5分
-- [✓]文档。doc目录下每个文档加5分。每个文档去空格后，不应少于500字。
-- Change log的检查，具备Change log的加5分。通常是History.md文件
-- [✓]项目协作。通过'git summary'，查看contributor的数量，从2个开始，每多一个贡献者，加10分
-- [✓]通过npm info或registry.npm.org/module接口检查当前模块是否发布，已发布则加5分
-- [✓]travis-ci加10分。passing状态加5分，反之扣5分
-- [✓]文件utf-8 without BOM检测。查出非utf8 without BOM，每个文件扣5分
+- 检查模块的目录是否符合 CommonJS 包规范，每符合一样加 10 分
+  - [x] lib
+  - [x] doc
+  - [x] test
+  - [ ] package.json
+- [x] 检查 README 文件的内容，去掉空格后每 1000 字 10 分。上限 30 分
+- [ ] 检查 License 文件。具备 License 文件的项目加 10 分。检查文件名包含 License 与否。
+- [ ] 检查测试用例数量。每个 case 加 2 分
+- [ ] 检查测试覆盖率。覆盖率从 50% 开始，每覆盖 5% 加 5 分。高于 95% 加 10 分
+- [ ] 检查 Coding Style, 每个文件不超过 3 个问题的，加 2 分。没有问题的加 5 分
+- [x] 模块名字少于 10 个字母的，加 5 分
+- [ ] API 注释，每个完整的注释加 5 分
+- [x] 文档。doc 目录下每个文档加 5 分。每个文档去空格后，不应少于 500 字
+- [ ] Change log 的检查，具备 Change log 的加 5 分。通常是 History.md 文件
+- [x] 项目协作。通过 'git summary'，查看 contributor 的数量，从 2 个开始，每多一个贡献者，加 10 分
+- [x] 通过 `registry.npm.org/module` 接口检查当前模块是否发布，已发布则加 5 分
+- [x] 有 travis-ci 且 passing 状态加 15 分，有但 failed 只加 5 分
+- [x] 文件 UTF-8 without BOM 检测。查出非 UTF-8 without BOM，每个文件扣 5 分
 
 ## 求你帮实现
 上面罗列了一些初步的检测项，您也看到了，这是一件复杂的事情。每一项都要去寻找对应的工具来进行分析。所求代码贡献，每成功提交和合并一个检查器，赠送图灵社区图书一本。
@@ -42,9 +42,9 @@ Module Lint是一款检测模块各种素质的工具。面向Node模块开发�
 └── package.json
 ```
 
-每个提交的检查相都应该存放在checklist目录下。每个检查相都应该导出rule描述和check方法
+每个提交的检查相都应该存放在 `checklist` 目录下。每个检查相都应该导出 rule 描述和 check 方法
 
-```
+```js
 /**
  * 规则描述
  */
@@ -78,13 +78,13 @@ exports.check = function (source, callback) {
 ## 如何调用？
 安装为命令行工具
 
-```
+```sh
 npm install modulelint -g
 ```
 
 自检一下试试看：
 
-```
+```sh
 modulelint -i ~/git/modulelint
 ```
 结果：
@@ -99,7 +99,7 @@ modulelint jacksontian $modulelint -i .
 1. folder `doc` is missing
 2. folder `test` is missing
 ```
-根据指导信息添加`doc`和`test`目录后：
+根据指导信息添加 `doc` 和 `test` 目录后：
 
 ```
 modulelint jacksontian $modulelint -i .
@@ -112,7 +112,7 @@ modulelint jacksontian $modulelint -i .
 
 
 ## 值得致谢的贡献者们
-以下数据通过`git-summary`于2012-11-26生成。
+以下数据通过 `git-summary` 于2012-11-26生成。
 
 ```
 
